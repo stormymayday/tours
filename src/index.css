@@ -10,7 +10,9 @@
 
 html {
   font-size: 100%;
-} /*16px*/
+}
+
+/*16px*/
 
 :root {
   /* colors */
@@ -72,9 +74,11 @@ body {
   line-height: 1;
   color: var(--textColor);
 }
+
 p {
   margin: 0;
 }
+
 h1,
 h2,
 h3,
@@ -121,6 +125,7 @@ small,
 a {
   text-decoration: none;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -131,6 +136,7 @@ ul {
   display: block;
   object-fit: cover;
 }
+
 /* buttons */
 
 .btn {
@@ -146,18 +152,22 @@ ul {
   text-transform: capitalize;
   display: inline-block;
 }
+
 .btn:hover {
   background: var(--primary-700);
   box-shadow: var(--shadow-3);
 }
+
 .btn-hipster {
   color: var(--primary-500);
   background: var(--primary-200);
 }
+
 .btn-hipster:hover {
   color: var(--primary-200);
   background: var(--primary-700);
 }
+
 .btn-block {
   width: 100%;
 }
@@ -174,10 +184,12 @@ ul {
   color: var(--red-dark);
   background: var(--red-light);
 }
+
 .alert-success {
   color: var(--green-dark);
   background: var(--green-light);
 }
+
 /* form */
 
 .form {
@@ -189,6 +201,7 @@ ul {
   padding: 2rem 2.5rem;
   margin: 3rem auto;
 }
+
 .form-label {
   display: block;
   font-size: var(--small-text);
@@ -196,6 +209,7 @@ ul {
   text-transform: capitalize;
   letter-spacing: var(--letterSpacing);
 }
+
 .form-input,
 .form-textarea {
   width: 100%;
@@ -212,15 +226,18 @@ ul {
 .form-textarea {
   height: 7rem;
 }
+
 ::placeholder {
   font-family: inherit;
   color: var(--grey-400);
 }
+
 .form-alert {
   color: var(--red-dark);
   letter-spacing: var(--letterSpacing);
   text-transform: capitalize;
 }
+
 /* alert */
 @keyframes spinner {
   to {
@@ -237,6 +254,7 @@ ul {
   border-top-color: var(--primary-500);
   animation: spinner 0.3s linear infinite;
 }
+
 /* title */
 
 .title {
@@ -250,6 +268,7 @@ ul {
   margin: 0 auto;
   margin-top: 1rem;
 }
+
 /* ============= PROJECT CSS =============== */
 
 main {
@@ -286,6 +305,7 @@ main {
   background: var(--primary-500);
   border-top-right-radius: var(--borderRadius);
 }
+
 .single-tour .img {
   height: 20rem;
   border-top-right-radius: var(--borderRadius);
@@ -302,11 +322,13 @@ main {
   font-weight: 500;
   line-height: 1.5;
 }
+
 .tour-info p {
   margin-bottom: 1.25rem;
   line-height: 1.5;
   color: var(--grey-500);
 }
+
 .info-btn,
 .delete-btn {
   background: transparent;
@@ -314,15 +336,18 @@ main {
   text-transform: capitalize;
   cursor: pointer;
 }
+
 .info-btn {
   color: var(--primary-500);
   font-weight: 600;
+  margin-left: 0.5rem;
 }
 
 .delete-btn {
   border: 1px solid var(--primary-500);
   color: var(--primary-500);
 }
+
 .delete-btn:hover {
   background: var(--primary-500);
   color: var(--white);
@@ -334,6 +359,7 @@ main {
     align-items: start;
   }
 }
+
 @media screen and (min-width: 992px) {
   .tours {
     grid-template-columns: 1fr 1fr 1fr;
