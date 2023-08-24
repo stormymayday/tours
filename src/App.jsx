@@ -7,6 +7,8 @@ const url = 'https://course-api.com/react-tours-project';
 const App = () => {
 
   const [tours, setTours] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
 
