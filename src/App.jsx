@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Loading from "./components/Loading.jsx";
 
 const url = 'https://course-api.com/react-tours-project';
 
