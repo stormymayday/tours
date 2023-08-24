@@ -39,23 +39,28 @@ const App = () => {
 
       }
 
+      setIsLoading(false);
+
     };
 
     fetchTours();
-
-    setIsLoading(false);
 
   }, []);
 
   if (isLoading) {
     return (
-      <Loading />
+      <main>
+        <Loading />
+      </main>
+
     );
   }
 
   if (isError) {
     return (
-      <h1>there was an error</h1>
+      <main>
+        <h1>there was an error</h1>
+      </main>
     );
   }
 
