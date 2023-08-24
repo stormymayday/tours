@@ -27,10 +27,11 @@ const App = () => {
         }
 
         const data = await response.json();
-        console.log(data);
+        setTours(data);
 
       } catch (error) {
 
+        setIsError(true);
         console.error(error);
 
       }
@@ -39,9 +40,25 @@ const App = () => {
 
     fetchTours();
 
+    setIsLoading(false);
+
   }, []);
 
-  return <h2>Tours Starter</h2>;
+  if (isLoading) {
+    return (
+      <Loading />
+    );
+  }
+
+  if (isError) {
+    return (
+      <h1>there was an error</h1>
+    );
+  }
+
+  return (
+    <Tours />
+  );
 
 };
 export default App;
