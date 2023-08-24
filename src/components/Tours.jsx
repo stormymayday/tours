@@ -1,6 +1,6 @@
 import Tour from "./Tour.jsx";
 
-const Tours = ({ tours }) => {
+const Tours = ({ tours, removeTour }) => {
 
     console.log(tours);
 
@@ -16,7 +16,7 @@ const Tours = ({ tours }) => {
 
                         tours.map((tour) => {
                             return (
-                                <Tour key={tour.id} {...tour} />
+                                <Tour key={tour.id} {...tour} removeTour={removeTour} />
                             );
                         })
 
