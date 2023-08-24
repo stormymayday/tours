@@ -17,6 +17,15 @@ const App = () => {
       try {
 
         const response = await fetch(url);
+
+        if (!response.ok) {
+
+          setIsError(true);
+          setIsLoading(false);
+          return;
+
+        }
+
         const data = await response.json();
         console.log(data);
 
