@@ -65,7 +65,9 @@ const App = () => {
   }
 
   return (
-    <Tours />
+    <main>
+      <Tours tours={tours} />
+    </main>
   );
 
 };
