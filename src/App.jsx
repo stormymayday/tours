@@ -6,13 +6,16 @@ const url = 'https://course-api.com/react-tours-project';
 
 const App = () => {
 
-  const [tours, setTours] = useState(null);
+  const [tours, setTours] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
 
     const fetchTours = async () => {
+
+      // For re-fetching
+      setIsLoading(true);
 
       try {
 
