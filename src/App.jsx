@@ -22,14 +22,12 @@ const App = () => {
 
                 if (!response.ok) {
                     setIsError(true);
-                    setIsLoading(false);
                     return;
                 }
 
                 const data = await response.json();
 
                 setTours(data);
-                // console.log(data);
             } catch (error) {
                 setIsError(true);
             }
@@ -42,20 +40,24 @@ const App = () => {
 
     if (isLoading) {
         return (
-            <>
+            <main>
                 <Loading />
-            </>
+            </main>
         );
     }
 
     if (isError) {
         return (
-            <>
+            <main>
                 <h1>There was an error</h1>
-            </>
+            </main>
         );
     }
 
-    return <Tours tours={tours} />;
+    return (
+        <main>
+            <Tours tours={tours} />
+        </main>
+    );
 };
 export default App;
