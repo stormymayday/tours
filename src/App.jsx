@@ -12,6 +12,14 @@ const App = () => {
 
     const [tours, setTours] = useState([]);
 
+    const removeTour = (id) => {
+        const newTours = tours.filter((tour) => {
+            return id !== tour.id;
+        });
+
+        setTours(newTours);
+    };
+
     useEffect(() => {
         const fetchTours = async () => {
             // For re-fetching
@@ -56,7 +64,7 @@ const App = () => {
 
     return (
         <main>
-            <Tours tours={tours} />
+            <Tours tours={tours} removeTour={removeTour} />
         </main>
     );
 };

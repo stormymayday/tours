@@ -1,5 +1,5 @@
 const Tour = (props) => {
-    const { tour } = props;
+    const { tour, removeTour } = props;
     const { id, image, info, name, price } = tour;
     return (
         <article className="single-tour">
@@ -9,6 +9,13 @@ const Tour = (props) => {
                 <h5>{name}</h5>
                 <p>{info}</p>
             </div>
+            <button
+                className="btn btn-block delete-btn"
+                type="button"
+                onClick={() => removeTour(id)}
+            >
+                not interested
+            </button>
         </article>
     );
 };
