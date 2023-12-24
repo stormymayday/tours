@@ -20,29 +20,29 @@ const App = () => {
         setTours(newTours);
     };
 
-    useEffect(() => {
-        const fetchTours = async () => {
-            // For re-fetching
-            setIsLoading(true);
+    const fetchTours = async () => {
+        // For re-fetching
+        setIsLoading(true);
 
-            try {
-                const response = await fetch(url);
+        try {
+            const response = await fetch(url);
 
-                if (!response.ok) {
-                    setIsError(true);
-                    return;
-                }
-
-                const data = await response.json();
-
-                setTours(data);
-            } catch (error) {
+            if (!response.ok) {
                 setIsError(true);
+                return;
             }
 
-            setIsLoading(false);
-        };
+            const data = await response.json();
 
+            setTours(data);
+        } catch (error) {
+            setIsError(true);
+        }
+
+        setIsLoading(false);
+    };
+
+    useEffect(() => {
         fetchTours();
     }, []);
 
@@ -64,7 +64,21 @@ const App = () => {
 
     return (
         <main>
-            <Tours tours={tours} removeTour={removeTour} />
+            {tours.length > 0 ? (
+                <Tours tours={tours} removeTour={removeTour} />
+            ) : (
+                <div className="title">
+                    <h2>No Tours</h2>
+                    <button
+                        type="button"
+                        className="btn"
+                        style={{ marginTop: "2rem" }}
+                        onClick={fetchTours}
+                    >
+                        refresh
+                    </button>
+                </div>
+            )}
         </main>
     );
 };
