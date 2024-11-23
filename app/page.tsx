@@ -5,6 +5,7 @@ import { fetchTours } from "@/utils";
 import { useState, useEffect } from "react";
 
 import Loading from "@/components/Loading";
+import Tours from "@/components/Tours";
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(false);
@@ -43,5 +44,9 @@ export default function Home() {
         return <main>{errorMessage}</main>;
     }
 
-    return <main>Hello</main>;
+    return (
+        <main>
+            <Tours tours={tours} />
+        </main>
+    );
 }
