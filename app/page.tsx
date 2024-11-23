@@ -1,7 +1,9 @@
 const url = "https://www.course-api.com/react-tours-project";
+import { fetchTours } from "@/utils";
+
 export default async function Home() {
-    const response = await fetch(url);
-    const data = await response.json();
+    const data = await fetchTours(url);
+
     console.log(data);
 
     return (
