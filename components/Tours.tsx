@@ -3,10 +3,11 @@ import Tour from "./Tour";
 
 interface ToursPros {
     tours: TourType[];
+    removeTour: (id: string) => void;
 }
 
 function Tours(props: ToursPros) {
-    const { tours } = props;
+    const { tours, removeTour } = props;
 
     return (
         <section>
@@ -16,7 +17,13 @@ function Tours(props: ToursPros) {
             </div>
             <div className="tours">
                 {tours.map((tour) => {
-                    return <Tour key={tour.id} tour={tour} />;
+                    return (
+                        <Tour
+                            key={tour.id}
+                            tour={tour}
+                            removeTour={removeTour}
+                        />
+                    );
                 })}
             </div>
         </section>

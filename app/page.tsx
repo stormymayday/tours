@@ -13,6 +13,13 @@ export default function Home() {
     const [errorMessage, setErrorMessage] = useState("");
     const [tours, setTours] = useState<TourType[]>([]);
 
+    const removeTour = (id: string) => {
+        const newTours = tours.filter((tour) => {
+            return tour.id !== id;
+        });
+        setTours(newTours);
+    };
+
     useEffect(() => {
         const getData = async () => {
             setIsLoading(true);
@@ -46,7 +53,7 @@ export default function Home() {
 
     return (
         <main>
-            <Tours tours={tours} />
+            <Tours tours={tours} removeTour={removeTour} />
         </main>
     );
 }

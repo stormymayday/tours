@@ -3,10 +3,12 @@ import Image from "next/image";
 
 interface TourProps {
     tour: TourType;
+    removeTour: (id: string) => void;
 }
 
 function Tour(props: TourProps) {
-    const { image, info, name, price } = props.tour;
+    const { id, image, info, name, price } = props.tour;
+    const { removeTour } = props;
 
     return (
         <article className="single-tour">
@@ -21,6 +23,15 @@ function Tour(props: TourProps) {
             <div className="tour-info">
                 <h5>{name}</h5>
                 <p>{info}</p>
+                <button
+                    type="button"
+                    className="btn btn-block delete-btn"
+                    onClick={() => {
+                        removeTour(id);
+                    }}
+                >
+                    not interested
+                </button>
             </div>
         </article>
     );
