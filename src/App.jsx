@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import Loading from "./components/Loading";
 import Tours from "./components/Tours";
 
-const url = "https://course-api.com/react-tours-project";
+// const url = "https://www.course-api.com";
+const url = "https://www.course-api.com/react-tours-project";
 
 const App = () => {
     const [isLoading, setIsLoading] = useState(true);
