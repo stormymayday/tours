@@ -1,9 +1,9 @@
 import { fetchTours } from "@/utils";
 
 export default async function Home() {
-    // const data = await fetchTours(process.env.NEXT_PUBLIC_API_URL || "");
-    const url = "https://www.course-api.com/react-tours-project";
-    const data = await fetchTours(url);
+    const data = await fetchTours(process.env.NEXT_PUBLIC_API_URL || "");
+    // const url = "https://www.course-api.com/react-tours-project";
+    // const data = await fetchTours(url);
 
     console.log(data);
 
