@@ -4,6 +4,8 @@ import { TourType } from "@/types";
 import { fetchTours } from "@/utils";
 import { useState, useEffect } from "react";
 
+import Loading from "@/components/Loading";
+
 export default function Home() {
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
@@ -30,12 +32,16 @@ export default function Home() {
     console.log(tours);
 
     if (isLoading) {
-        return <div>Loading</div>;
+        return (
+            <main>
+                <Loading />
+            </main>
+        );
     }
 
     if (isError) {
-        return <div>{errorMessage}</div>;
+        return <main>{errorMessage}</main>;
     }
 
-    return <div>Hello</div>;
+    return <main>Hello</main>;
 }
