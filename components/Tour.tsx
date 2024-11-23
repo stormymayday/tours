@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { TourType } from "@/types";
 import Image from "next/image";
 
@@ -9,6 +12,8 @@ interface TourProps {
 function Tour(props: TourProps) {
     const { id, image, info, name, price } = props.tour;
     const { removeTour } = props;
+
+    const [readMore, setReadMore] = useState(false);
 
     return (
         <article className="single-tour">
@@ -22,7 +27,16 @@ function Tour(props: TourProps) {
             <span className="tour-price">${price}</span>
             <div className="tour-info">
                 <h5>{name}</h5>
-                <p>{info}</p>
+                <p>
+                    {readMore ? info : `${info.substring(0, 200)} ...`}
+                    <button
+                        type="button"
+                        className="info-btn"
+                        onClick={() => setReadMore(!readMore)}
+                    >
+                        {readMore ? "show less" : "read more"}
+                    </button>
+                </p>
                 <button
                     type="button"
                     className="btn btn-block delete-btn"
