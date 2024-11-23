@@ -93,3 +93,5 @@ jobs:
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v4
+              env:
+              NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
