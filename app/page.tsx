@@ -1,18 +1,24 @@
-import { fetchTours } from "@/utils";
+"use client";
 
-export default async function Home() {
-    const data = await fetchTours(process.env.NEXT_PUBLIC_API_URL || "");
+import { useState, useEffect } from "react";
 
-    return (
-        <>
-            {data.length > 0
-                ? data.map((item) => {
-                      return <p key={item.id}>{item.id}</p>;
-                  })
-                : null}
-            <div>
-                <h1>Hello!</h1>
-            </div>
-        </>
-    );
+export default function Home() {
+    const [tours, setTours] = useState([]);
+
+    const fetchTours = async () => {
+        const url = process.env.NEXT_PUBLIC_API_URL;
+        if (url) {
+            const response = await fetch(url);
+            const data = await response.json();
+            setTours(data);
+        }
+    };
+
+    useEffect(() => {
+        fetchTours();
+    }, []);
+
+    console.log(tours);
+
+    return <div>Hello</div>;
 }
