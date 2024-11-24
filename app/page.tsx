@@ -20,20 +20,20 @@ export default function Home() {
         setTours(newTours);
     };
 
+    const getData = async () => {
+        setIsLoading(true);
+
+        const { data, isError, errorMessage } = await fetchTours(
+            process.env.NEXT_PUBLIC_API_URL || ""
+        );
+
+        setTours(data);
+        setIsError(isError);
+        setErrorMessage(errorMessage);
+        setIsLoading(false);
+    };
+
     useEffect(() => {
-        const getData = async () => {
-            setIsLoading(true);
-
-            const { data, isError, errorMessage } = await fetchTours(
-                process.env.NEXT_PUBLIC_API_URL || ""
-            );
-
-            setTours(data);
-            setIsError(isError);
-            setErrorMessage(errorMessage);
-            setIsLoading(false);
-        };
-
         getData();
     }, []);
 
@@ -49,6 +49,20 @@ export default function Home() {
 
     if (isError) {
         return <main>{errorMessage}</main>;
+    }
+
+    if (tours.length === 0) {
+        return (
+            <main>
+                <div className="title">
+                    <h2>no tours left</h2>
+                    <div className="title-underline"></div>
+                    <button className="btn mt-10" onClick={getData}>
+                        fetch tours
+                    </button>
+                </div>
+            </main>
+        );
     }
 
     return (
